@@ -381,7 +381,7 @@ async function openDeptPlacement(deptKey) {
         <p style="color:rgba(237, 230, 230, 0.75);font-size:0.9rem;margin-top:4px;">
           ${isLive
             ? '🟢 Live data from your spreadsheet'
-            : '🟡 Sample data'}
+            : ''}
         </p>
       </div>
     </div>
