@@ -16,6 +16,7 @@ Dedicated pages for 8 departments:
 ###  Placements
 - Live stats: 98% placement rate, avg. ₹12.5 LPA
 - Top recruiters, year-wise trends, animated progress bars
+  Data used for Placements- https://sheetdb.io/api/v1/kcjj0f56v30ej
   
 ###  AI Chatbot Assistant
 - Floating chatbot (`💬`) powered by keyword-matching responses
@@ -78,6 +79,11 @@ bmsce-website/
 # Open directly in browser — no build step needed
 open index.html
 
-Additional Features that can be implemented:
+# Additional Features that can be implemented:
 •	Integrated website access to the student portal 
 •	Virtual campus tour
+
+# Authors
+Gowri T R
+Jeshika J
+Lalithya M R
