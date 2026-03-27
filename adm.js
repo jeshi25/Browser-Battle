@@ -47,7 +47,7 @@ function renderAdmissions() {
     <div style="background:linear-gradient(135deg,var(--blue-mid),var(--blue-light));border-radius:var(--radius);padding:40px;margin-top:40px;text-align:center;color:#fff;" class="reveal">
       <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:12px;">Application Deadline</h3>
       <p style="opacity:0.85;margin-bottom:20px;">KCET Counselling: June 2025 &nbsp;|&nbsp; Management Quota: July 2025</p>
-      <button style="background:#fff;color:var(--blue-mid);font-weight:700;padding:12px 32px;border-radius:50px;font-size:0.95rem;border:none;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.background='var(--gold)'" onmouseout="this.style.background='#fff'">Apply Now for 2025–26</button>
+      
     </div>
   </div>
   `;
