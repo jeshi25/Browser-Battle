@@ -1,0 +1,290 @@
+/* ═══════════════════════════════════════════════
+   PLACEMENTS v2 – Replace your old placements_styles.css
+   Key fix: fixed chart container heights so charts
+   don't expand to fill the full page.
+═══════════════════════════════════════════════ */
+
+/* ── DEPT NAV BUTTONS ── */
+.placement-dept-nav {
+  background: var(--gray-100);
+  padding: 28px 24px;
+  text-align: center;
+  border-bottom: 1px solid var(--card-border);
+  position: sticky;
+  top: calc(var(--nav-h) + var(--ticker-h));
+  z-index: 50;
+  backdrop-filter: blur(12px);
+}
+
+.placement-dept-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.placement-dept-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pdept-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.4,0,0.2,1);
+  min-width: 90px;
+  font-family: inherit;
+}
+
+.pdept-btn:hover {
+  background: var(--blue-mid);
+  border-color: var(--blue-mid);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(26,75,140,0.28);
+}
+
+.pdept-btn:hover .pdept-name,
+.pdept-btn:hover .pdept-full,
+.pdept-btn:hover .pdept-emoji { color: #fff; }
+
+.pdept-btn.active {
+  background: var(--blue-dark);
+  border-color: var(--blue-light);
+  box-shadow: 0 0 0 3px rgba(45,111,212,0.22), 0 6px 18px rgba(13,43,85,0.35);
+  transform: translateY(-3px);
+}
+
+.pdept-btn.active .pdept-name,
+.pdept-btn.active .pdept-full,
+.pdept-btn.active .pdept-emoji { color: #fff; }
+
+.pdept-emoji { font-size: 1.5rem; line-height: 1; }
+.pdept-name  { font-size: 0.88rem; font-weight: 700; color: var(--text); transition: color 0.22s; }
+.pdept-full  { font-size: 0.65rem; color: var(--text-muted); transition: color 0.22s; text-align: center; line-height: 1.3; max-width: 88px; }
+
+/* ── BACK BUTTON ── */
+.pdept-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 24px;
+  padding: 8px 20px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.22s;
+  margin-bottom: 16px;
+}
+.pdept-back-btn:hover {
+  background: rgba(255,255,255,0.28);
+  border-color: rgba(255,255,255,0.7);
+}
+
+/* ── DEPT HERO ── */
+.pdept-detail-hero {
+  padding: 40px 24px 36px;
+  color: #fff;
+}
+.pdept-detail-inner { max-width: 900px; margin: 0 auto; }
+.pdept-detail-hero h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+/* ── STATS ROW ── */
+.pdept-stats-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 24px;
+}
+
+.pdept-stat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 20px 14px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.22s;
+}
+.pdept-stat-card:hover { transform: translateY(-3px); }
+
+.pdept-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+.pdept-stat-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ── CHARTS GRID ──
+   KEY FIX: chart-wrap has explicit height so Chart.js
+   doesn't grow the canvas to fill the viewport.
+── */
+.pdept-charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 28px;
+}
+
+.pdept-chart-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 22px 20px 18px;
+  box-shadow: var(--shadow);
+  /* do NOT set height here — let content define it */
+}
+
+.pdept-chart-full {
+  grid-column: 1 / -1;   /* span both columns */
+}
+
+.chart-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 14px;
+}
+
+/* ★ THIS IS THE CRITICAL FIX ★
+   Give the wrapper a fixed height.
+   Chart.js will respect this when responsive:true + maintainAspectRatio:false */
+.chart-wrap {
+  position: relative;
+  width: 100%;
+  height: 240px;     /* fixed height — charts will NOT overflow */
+}
+
+.chart-wrap-wide {
+  height: 220px;     /* slightly shorter for the wide line chart */
+}
+
+/* ── STUDENT TABLE HEADER ── */
+.student-table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.student-table-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.student-search-input {
+  padding: 8px 14px;
+  border: 1.5px solid var(--card-border);
+  border-radius: 24px;
+  font-size: 0.83rem;
+  background: var(--card-bg);
+  color: var(--text);
+  outline: none;
+  width: 210px;
+  transition: border-color 0.22s;
+  font-family: inherit;
+}
+.student-search-input:focus { border-color: var(--blue-light); }
+
+.student-filter-select {
+  padding: 8px 14px;
+  border: 1.5px solid var(--card-border);
+  border-radius: 24px;
+  font-size: 0.83rem;
+  background: var(--card-bg);
+  color: var(--text);
+  outline: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.student-count-badge {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ── SECTION WRAPPER ── */
+.pdept-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+.pdept-section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+/* ── SPINNER ── */
+.spinner {
+  width: 44px; height: 44px;
+  border: 4px solid var(--gray-200);
+  border-top-color: var(--blue-mid);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .pdept-stats-row { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .placement-dept-nav { position: static; }
+  .pdept-btn { min-width: 72px; padding: 8px 10px; }
+  .pdept-full { display: none; }
+  .pdept-charts-row { grid-template-columns: 1fr; }
+  .pdept-chart-full { grid-column: 1; }
+  .pdept-stats-row { grid-template-columns: repeat(2, 1fr); padding: 20px 16px; }
+  .chart-wrap { height: 220px; }
+  .chart-wrap-wide { height: 200px; }
+  .student-search-input { width: 160px; }
+}
+
+@media (max-width: 480px) {
+  .pdept-stats-row { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pdept-stat-num { font-size: 1.35rem; }
+  .student-table-controls { flex-direction: column; align-items: flex-start; }
+  .student-search-input { width: 100%; }
+}
